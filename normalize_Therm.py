@@ -19,10 +19,11 @@ def normalize(inputPath, savePath, normalizationMethod):
 	# Process and normalize all the images
 	index = 0
 	for file in imgs_list:
+		#print(file)
 		print("%d/%d" % (index, len(imgs_list)))
 
 		img = cv2.imread(file, 0)
-		if normalizationMethod == "hist":
+		if normalizationMethod == "Histogram":
 			equ = cv2.equalizeHist(img)
 		else:
 			clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8,8))
@@ -37,7 +38,10 @@ def normalize(inputPath, savePath, normalizationMethod):
 
 
 if __name__ == "__main__":
-	inputFiles = ""
-	saveDir = ""
+	inputFiles = "/home/alexk/Documents/Socom/Curve_Path_to_Tower/Tau640_LWIR_21600"
+	
+	norm_methods = ["Histogram", "CLAHE"]
 
-	normalize(inputFiles, saveDir, "hist")
+	for method in norm_methods:
+		saveDir = os.path.join(inputFiles, "Normalized_%s" % method)
+		normalize(inputFiles, saveDir, method)
