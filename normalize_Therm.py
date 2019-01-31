@@ -17,7 +17,7 @@ def normalize(inputPath, savePath, normalizationMethod):
 	print("Found %d images..." % len(imgs_list))
 
 	# Process and normalize all the images
-	index = 0
+	index = 1
 	for file in imgs_list:
 		#print(file)
 		print("%d/%d" % (index, len(imgs_list)))
@@ -38,7 +38,7 @@ def normalize(inputPath, savePath, normalizationMethod):
 
 
 if __name__ == "__main__":
-	inputFiles = "/home/alexk/Documents/Socom/Curve_Path_to_Tower/Tau640_LWIR_21600"
+	inputFiles = "/home/alexk/Documents/Socom/WaterTower2_1500Frames/Curve_Path_to_Tower_12fov/Tau640_LWIR_43200"
 	
 	norm_methods = ["Histogram", "CLAHE"]
 
